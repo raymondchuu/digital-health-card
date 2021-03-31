@@ -1,0 +1,12 @@
+# Seneca Hackathon Digital Passport Backend
+You can find the front end for this application [here](https://github.com/tangj18/SenecaHackathon). 
+The code in this repository was modeled from Hyperledger Fabric's tutorial with some modifications to match our needs. You can find the original repository [here](https://github.com/hyperledger/fabric-samples).
+
+## The Problem
+We were tasked to develop a solution to a digital health card that tracks for previous covid tests/vaccinations and contact tracing. This repository provides the solution for the backend network to store the medical information in a safe and secure database so that a front-end application can query this information safely for further validation. I decided to use blockchain technology over a standard centralized database because information that's stored within a blockchain network is peer to peer. By storing blocks of information, there isn't a single point of failure, and the data is not controlled by a single entity, which makes it harder for hackers to breach this information. In addition, private channels are also used within Hyperledger fabric, which aids in confidentiality of information between every single user. 
+
+## Implementation
+Our front end application will communicate with the implemented smart contracts (or chaincode) which will then run the necessary methods needed to either add new data or fetch data. I decided to implement a HTTP express server that communicates with our front end app. The express server will listen for get requests with the parameters of the request being the user's unique health card number. Using the parameters, the server will then execute the appropriate chaincode to fetch the required information and then send it back to the front end application. Due to our limited time, I was able to get the network set up locally and developed the chaincode, but was unable to communicate it with our front end application. 
+
+## Challenges
+The biggest challenge was time itself. It was very difficult to learn all these new technologies, to let alone try to actually build an application from scratch. We understood that the challenge was more to think of a solution, but it's always great to have a working example.
